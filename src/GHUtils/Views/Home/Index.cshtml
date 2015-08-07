@@ -1,0 +1,17 @@
+﻿<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Utilities for GitHub tasks</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            @await Html.PartialAsync("CreateLabels")
+        </div>
+        <div class="col-md-6">
+            @await Html.PartialAsync("CreateMilestones")
+        </div>
+    </div>
+</div>

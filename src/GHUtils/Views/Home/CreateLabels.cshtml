@@ -1,0 +1,34 @@
+﻿@model CreateLabelViewModel
+
+<div class="panel panel-default">
+    <div class="panel-heading">Create Labels on multiple repos</div>
+    <div class="panel-body">
+        <form asp-controller="Home" asp-action="CreateLabels" method="post" role="form">
+            <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Repositories">Repositories:</label>
+                <input id="repositories" asp-for="Repositories" class="form-control" type="text" />
+                <span asp-validation-for="Repositories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Label">Label:</label>
+                <input id="label" asp-for="Label" class="form-control" type="text" />
+                <span asp-validation-for="Label" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color">Color:</label>
+                <input id="color" asp-for="Color" class="form-control" type="text" value="#1e2966" />
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-default">Create Label</button>
+        </form>
+    </div>
+</div>
+
+<script managed="true">
+        $(document).ready(function () {
+            $('#color').colorpicker({
+                format: 'hex'
+            });
+        });
+</script>

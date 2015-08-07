@@ -1,0 +1,17 @@
+﻿
+<div class="panel panel-default">
+    <div class="panel-heading">Create Milestones on multiple repos</div>
+    <div class="panel-body">
+        <form asp-controller="Home" asp-action="CreateLabels" method="post" role="form">
+            <div class="form-group">
+                <label for="repositories">Repositories:</label>
+                <input id="repositories" class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="milestone">Milestone:</label>
+                <input id="milestone" class="form-control" type="text" />
+            </div>
+            <button type="submit" class="btn btn-default">Create Mmilestone</button>
+        </form>
+    </div>
+</div>
