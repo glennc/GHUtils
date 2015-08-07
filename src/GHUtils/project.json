@@ -1,7 +1,7 @@
 {
     "webroot": "wwwroot",
     "version": "1.0.0-*",
-
+    "userSecretsId" : "GitHubUtils",
     "dependencies": {
         "Microsoft.AspNet.Server.IIS": "1.0.0-beta6",
         "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6",
@@ -12,7 +12,8 @@
         "Microsoft.Net.Http": "2.2.22",
         "System.Net.Http": "4.0.0-beta-23019",
         "Microsoft.AspNet.Authentication.Cookies": "1.0.0-beta6",
-        "Microsoft.AspNet.Http.Abstractions": "1.0.0-beta6"
+      "Microsoft.AspNet.Http.Abstractions": "1.0.0-beta6",
+      "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta6"
     },
 
     "commands": {

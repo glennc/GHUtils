@@ -16,11 +16,21 @@ using System.Security.Claims;
 using Microsoft.AspNet.Http.Authentication;
 using Microsoft.AspNet.Authentication;
 using Microsoft.AspNet.Authentication.Cookies;
+using Microsoft.Framework.Configuration;
 
 namespace GHUtils
 {
     public class Startup
     {
+        private IConfiguration _configuration;
+
+        public Startup(IApplicationEnvironment appEnv)
+        {
+            var configBuilder = new ConfigurationBuilder(appEnv.ApplicationBasePath);
+            configBuilder.AddUserSecrets();
+            configBuilder.AddEnvironmentVariables();
+            _configuration = configBuilder.Build();
+        }
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
@@ -44,8 +54,8 @@ namespace GHUtils
 
             app.UseOAuthAuthentication("GitHub-AccessToken", options =>
             {
-                options.ClientId = "e760d5ed21ad003618ea";
-                options.ClientSecret = "bc13e11b7ebff3fe4da76abb53722b83879ce5d8";
+                options.ClientId = _configuration.Get("GitHub:ClientId");
+                options.ClientSecret = _configuration.Get("GitHub:Secret");
                 options.CallbackPath = new PathString("/signin-github");
                 options.AuthorizationEndpoint = "https://github.com/login/oauth/authorize";
                 options.TokenEndpoint = "https://github.com/login/oauth/access_token";
